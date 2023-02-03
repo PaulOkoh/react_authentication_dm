@@ -13,5 +13,9 @@ module.exports = {
 
   deletePost: (req,res) => {
     console.log("delete post")
+  },
+
+  editPost: (req, res) => {
+    console.log("edit post")
   }
 }
