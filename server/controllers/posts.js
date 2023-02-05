@@ -1,3 +1,6 @@
+const {User} = require('../models/user')
+const {Post} = require('../models/post')
+
 module.exports = {
   getAllPosts: (req, res) => {
     console.log('get all posts')
@@ -7,8 +10,8 @@ module.exports = {
     console.log("current user posts")
   }, 
 
-  addPost: (req, res) => {
-    console.log("add post")
+  addPost: async (req, res) => {
+    
   }, 
 
   deletePost: (req,res) => {
