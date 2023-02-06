@@ -25,7 +25,7 @@ module.exports = {
   register: async (req, res) => {
     try {
         const {username, password} = req.body 
-        let foundUser = await User.findOne({where: {usernname}})
+        let foundUser = await User.findOne({where: {username}})
         if (foundUser) {
           res.status(400).send('cannot create user')
         } else {

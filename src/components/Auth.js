@@ -1,17 +1,16 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import  AuthContext  from "../store/authContext";
 
 const Auth = () => {
   const authCtx = useContext(AuthContext)
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(true);
-  const [login, setLogin] = useState(false);
 
+  
   const switchLoginSignUp = () => {
     setRegister((prevState) => !prevState);
   };
@@ -19,15 +18,13 @@ const Auth = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
-
+   
     const body = {
       username,
-      password,
+      password
     };
 
-    const url = `https://socialmtn.devmountain.com`;
+    const url = 'http://localhost:4040';
 
     
 
@@ -56,7 +53,6 @@ const Auth = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="form-input"
-          ref={emailInputRef}
         />
         <input
           type="password"
@@ -64,13 +60,13 @@ const Auth = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="form-input"
-          ref={passwordInputRef}
         />
-        <button className="form-btn" onClick={switchLoginSignUp}>
+        <button className="form-btn" >
           {register ? "Sign Up" : "Login"}
         </button>
       </form>
-      <button className="form-btn">
+     
+      <button className="form-btn" onClick={switchLoginSignUp}>
         Need to {register ? "Login" : "Sign Up"}?
       </button>
     </main>
